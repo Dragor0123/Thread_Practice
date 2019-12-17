@@ -70,7 +70,7 @@ int main()
 
 		// hThread를 Suspend상태로 바꿈
 		SuspendThread(hThread);
-
+		system("cls");
 		// 여기서 부터
 		gotoxy(0, 1);
 		cout << "----------------------------------------------------\n";
