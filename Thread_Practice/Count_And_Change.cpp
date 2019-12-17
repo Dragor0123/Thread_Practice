@@ -69,8 +69,8 @@ int main()
 	while (true) {
 
 		// hThread를 Suspend상태로 바꿈
-		SuspendThread(hThread);
 		system("cls");
+		SuspendThread(hThread);
 		// 여기서 부터
 		gotoxy(0, 1);
 		cout << "----------------------------------------------------\n";
