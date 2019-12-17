@@ -32,11 +32,11 @@ void MoveStar(int _arr[], char _dir, int* pos);
 unsigned __stdcall Thread_PrintCount(void* pArguments)
 {
 	int iCount = 0;
-	while (iCount < 1000) {
+	while (iCount < 10000) {
 		// gotoxy(x, y) : 콘솔 커서 위치를 x, y좌표로 바꿔준다.
 		gotoxy(0, 0);
 		cout << iCount++ << '\n';
-		Sleep(10);
+		Sleep(20);
 	}
 
 	_endthreadex(0);
@@ -69,7 +69,6 @@ int main()
 	while (true) {
 
 		// hThread를 Suspend상태로 바꿈
-		system("cls");
 		SuspendThread(hThread);
 		// 여기서 부터
 		gotoxy(0, 1);
@@ -80,12 +79,12 @@ int main()
 		// 여기까지 쓰레드의 끊김 없이 한 번에 출력해야함
 		ResumeThread(hThread); 		// hThread를 Resume상태로 바꿈
 		
-		char chMove = rand() % 4;
+		//char chMove = rand() % 4;
 		
 		// 키보드로 바로 입력 받는다. 
-		/*char chMove = _getch();
+		char chMove = _getch();
 		if (chMove == 'q' || chMove == 'Q')
-			break;*/
+			break;
 		MoveStar(arr, chMove, &pos);
 		Sleep(200);
 	}
@@ -133,7 +132,6 @@ void MoveStar(int _arr[], char _dir, int* pos)
 	{
 	case 'W':
 	case 'w':
-	case 0:
 		if (*pos >= 5) {
 			Swap(&_arr[*pos], &_arr[*pos - 5]);
 			*pos = *pos - 5;
@@ -141,7 +139,6 @@ void MoveStar(int _arr[], char _dir, int* pos)
 		break;
 	case 'A':
 	case 'a':
-	case 1:
 		if (*pos % 5) {
 			Swap(&_arr[*pos], &_arr[*pos - 1]);
 			*pos = *pos - 1;
@@ -149,7 +146,6 @@ void MoveStar(int _arr[], char _dir, int* pos)
 		break;
 	case 'S':
 	case 's':
-	case 2:
 		if (*pos < 20) {
 			Swap(&_arr[*pos], &_arr[*pos + 5]);
 			*pos = *pos + 5;
@@ -157,7 +153,6 @@ void MoveStar(int _arr[], char _dir, int* pos)
 		break;
 	case 'D':
 	case 'd':
-	case 3:
 		if (4 != *pos % 5) {
 			Swap(&_arr[*pos], &_arr[*pos + 1]);
 			*pos = *pos + 1;
