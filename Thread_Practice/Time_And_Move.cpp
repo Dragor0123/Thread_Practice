@@ -25,7 +25,6 @@ const std::string CurrentDateTime();
 // Thread function
 unsigned __stdcall Thread_PrintCount(void* pArguments)
 {
-
 	while (true)
 	{
 		// gotoxy(x, y) : 콘솔 커서 위치를 x, y좌표로 바꿔준다.
@@ -100,7 +99,7 @@ int main()
 		// 여기까지 쓰레드의 끊김 없이 한 번에 출력해야함
 		gotoxy(0, 0);
 		ResumeThread(hThread); 		// hThread를 Resume상태로 바꿈
-		Sleep(500);
+		Sleep(50);
 	}
 	system("cls");
 	WaitForSingleObject(hThread, 1000);
