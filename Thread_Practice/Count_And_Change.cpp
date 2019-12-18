@@ -36,7 +36,7 @@ unsigned __stdcall Thread_PrintCount(void* pArguments)
 		// gotoxy(x, y) : 콘솔 커서 위치를 x, y좌표로 바꿔준다.
 		gotoxy(0, 0);
 		cout << iCount++ << '\n';
-		Sleep(20);
+		Sleep(100);
 	}
 
 	_endthreadex(0);
@@ -86,7 +86,6 @@ int main()
 		if (chMove == 'q' || chMove == 'Q')
 			break;
 		MoveStar(arr, chMove, &pos);
-		Sleep(200);
 	}
 	system("cls");
 	TerminateThread(hThread, 0);
